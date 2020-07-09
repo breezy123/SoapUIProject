@@ -1,0 +1,1539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="559e9da6-29b7-455d-b010-d9e9f88aa02e" activeEnvironment="Default" name="countryinfoservice" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="TestSuite2"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="C:\Users\aubrey\Desktop"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="b72f87ca-7403-4ed6-9311-018d56831ce2" wsaVersion="NONE" name="CountryInfoServiceSoapBinding" type="wsdl" bindingName="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="CreateWsdlDocumentationAction@report-directory">C:\Users\aubrey\Desktop\SOAPUIProject</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso?wsdl"><con:part><con:url>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso?wsdl</con:url><con:content><![CDATA[<definitions name="CountryInfoService" targetNamespace="http://www.oorsprong.org/websamples.countryinfo" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.oorsprong.org/websamples.countryinfo">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.oorsprong.org/websamples.countryinfo">
+      <xs:complexType name="tContinent">
+        <xs:sequence>
+          <xs:element name="sCode" type="xs:string"/>
+          <xs:element name="sName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tCurrency">
+        <xs:sequence>
+          <xs:element name="sISOCode" type="xs:string"/>
+          <xs:element name="sName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tCountryCodeAndName">
+        <xs:sequence>
+          <xs:element name="sISOCode" type="xs:string"/>
+          <xs:element name="sName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tCountryCodeAndNameGroupedByContinent">
+        <xs:sequence>
+          <xs:element name="Continent" type="tns:tContinent"/>
+          <xs:element name="CountryCodeAndNames" type="tns:ArrayOftCountryCodeAndName"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tCountryInfo">
+        <xs:sequence>
+          <xs:element name="sISOCode" type="xs:string"/>
+          <xs:element name="sName" type="xs:string"/>
+          <xs:element name="sCapitalCity" type="xs:string"/>
+          <xs:element name="sPhoneCode" type="xs:string"/>
+          <xs:element name="sContinentCode" type="xs:string"/>
+          <xs:element name="sCurrencyISOCode" type="xs:string"/>
+          <xs:element name="sCountryFlag" type="xs:string"/>
+          <xs:element name="Languages" type="tns:ArrayOftLanguage"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tLanguage">
+        <xs:sequence>
+          <xs:element name="sISOCode" type="xs:string"/>
+          <xs:element name="sName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOftCountryCodeAndName">
+        <xs:sequence>
+          <xs:element name="tCountryCodeAndName" type="tns:tCountryCodeAndName" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOftLanguage">
+        <xs:sequence>
+          <xs:element name="tLanguage" type="tns:tLanguage" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOftContinent">
+        <xs:sequence>
+          <xs:element name="tContinent" type="tns:tContinent" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOftCurrency">
+        <xs:sequence>
+          <xs:element name="tCurrency" type="tns:tCurrency" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOftCountryCodeAndNameGroupedByContinent">
+        <xs:sequence>
+          <xs:element name="tCountryCodeAndNameGroupedByContinent" type="tns:tCountryCodeAndNameGroupedByContinent" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOftCountryInfo">
+        <xs:sequence>
+          <xs:element name="tCountryInfo" type="tns:tCountryInfo" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ListOfContinentsByName">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfContinentsByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfContinentsByNameResult" type="tns:ArrayOftContinent"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfContinentsByCode">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfContinentsByCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfContinentsByCodeResult" type="tns:ArrayOftContinent"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCurrenciesByName">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCurrenciesByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfCurrenciesByNameResult" type="tns:ArrayOftCurrency"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCurrenciesByCode">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCurrenciesByCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfCurrenciesByCodeResult" type="tns:ArrayOftCurrency"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CurrencyName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCurrencyISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CurrencyNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CurrencyNameResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCountryNamesByCode">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCountryNamesByCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfCountryNamesByCodeResult" type="tns:ArrayOftCountryCodeAndName"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCountryNamesByName">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCountryNamesByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfCountryNamesByNameResult" type="tns:ArrayOftCountryCodeAndName"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCountryNamesGroupedByContinent">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfCountryNamesGroupedByContinentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfCountryNamesGroupedByContinentResult" type="tns:ArrayOftCountryCodeAndNameGroupedByContinent"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CountryNameResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryISOCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryISOCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CountryISOCodeResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CapitalCity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CapitalCityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CapitalCityResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryCurrency">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryCurrencyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CountryCurrencyResult" type="tns:tCurrency"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryFlag">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryFlagResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CountryFlagResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryIntPhoneCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountryIntPhoneCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CountryIntPhoneCodeResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FullCountryInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sCountryISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FullCountryInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FullCountryInfoResult" type="tns:tCountryInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FullCountryInfoAllCountries">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FullCountryInfoAllCountriesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FullCountryInfoAllCountriesResult" type="tns:ArrayOftCountryInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountriesUsingCurrency">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sISOCurrencyCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CountriesUsingCurrencyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CountriesUsingCurrencyResult" type="tns:ArrayOftCountryCodeAndName"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfLanguagesByName">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfLanguagesByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfLanguagesByNameResult" type="tns:ArrayOftLanguage"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfLanguagesByCode">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ListOfLanguagesByCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ListOfLanguagesByCodeResult" type="tns:ArrayOftLanguage"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LanguageName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sISOCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LanguageNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LanguageNameResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LanguageISOCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sLanguageName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LanguageISOCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LanguageISOCodeResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="ListOfContinentsByNameSoapRequest">
+    <part name="parameters" element="tns:ListOfContinentsByName"/>
+  </message>
+  <message name="ListOfContinentsByNameSoapResponse">
+    <part name="parameters" element="tns:ListOfContinentsByNameResponse"/>
+  </message>
+  <message name="ListOfContinentsByCodeSoapRequest">
+    <part name="parameters" element="tns:ListOfContinentsByCode"/>
+  </message>
+  <message name="ListOfContinentsByCodeSoapResponse">
+    <part name="parameters" element="tns:ListOfContinentsByCodeResponse"/>
+  </message>
+  <message name="ListOfCurrenciesByNameSoapRequest">
+    <part name="parameters" element="tns:ListOfCurrenciesByName"/>
+  </message>
+  <message name="ListOfCurrenciesByNameSoapResponse">
+    <part name="parameters" element="tns:ListOfCurrenciesByNameResponse"/>
+  </message>
+  <message name="ListOfCurrenciesByCodeSoapRequest">
+    <part name="parameters" element="tns:ListOfCurrenciesByCode"/>
+  </message>
+  <message name="ListOfCurrenciesByCodeSoapResponse">
+    <part name="parameters" element="tns:ListOfCurrenciesByCodeResponse"/>
+  </message>
+  <message name="CurrencyNameSoapRequest">
+    <part name="parameters" element="tns:CurrencyName"/>
+  </message>
+  <message name="CurrencyNameSoapResponse">
+    <part name="parameters" element="tns:CurrencyNameResponse"/>
+  </message>
+  <message name="ListOfCountryNamesByCodeSoapRequest">
+    <part name="parameters" element="tns:ListOfCountryNamesByCode"/>
+  </message>
+  <message name="ListOfCountryNamesByCodeSoapResponse">
+    <part name="parameters" element="tns:ListOfCountryNamesByCodeResponse"/>
+  </message>
+  <message name="ListOfCountryNamesByNameSoapRequest">
+    <part name="parameters" element="tns:ListOfCountryNamesByName"/>
+  </message>
+  <message name="ListOfCountryNamesByNameSoapResponse">
+    <part name="parameters" element="tns:ListOfCountryNamesByNameResponse"/>
+  </message>
+  <message name="ListOfCountryNamesGroupedByContinentSoapRequest">
+    <part name="parameters" element="tns:ListOfCountryNamesGroupedByContinent"/>
+  </message>
+  <message name="ListOfCountryNamesGroupedByContinentSoapResponse">
+    <part name="parameters" element="tns:ListOfCountryNamesGroupedByContinentResponse"/>
+  </message>
+  <message name="CountryNameSoapRequest">
+    <part name="parameters" element="tns:CountryName"/>
+  </message>
+  <message name="CountryNameSoapResponse">
+    <part name="parameters" element="tns:CountryNameResponse"/>
+  </message>
+  <message name="CountryISOCodeSoapRequest">
+    <part name="parameters" element="tns:CountryISOCode"/>
+  </message>
+  <message name="CountryISOCodeSoapResponse">
+    <part name="parameters" element="tns:CountryISOCodeResponse"/>
+  </message>
+  <message name="CapitalCitySoapRequest">
+    <part name="parameters" element="tns:CapitalCity"/>
+  </message>
+  <message name="CapitalCitySoapResponse">
+    <part name="parameters" element="tns:CapitalCityResponse"/>
+  </message>
+  <message name="CountryCurrencySoapRequest">
+    <part name="parameters" element="tns:CountryCurrency"/>
+  </message>
+  <message name="CountryCurrencySoapResponse">
+    <part name="parameters" element="tns:CountryCurrencyResponse"/>
+  </message>
+  <message name="CountryFlagSoapRequest">
+    <part name="parameters" element="tns:CountryFlag"/>
+  </message>
+  <message name="CountryFlagSoapResponse">
+    <part name="parameters" element="tns:CountryFlagResponse"/>
+  </message>
+  <message name="CountryIntPhoneCodeSoapRequest">
+    <part name="parameters" element="tns:CountryIntPhoneCode"/>
+  </message>
+  <message name="CountryIntPhoneCodeSoapResponse">
+    <part name="parameters" element="tns:CountryIntPhoneCodeResponse"/>
+  </message>
+  <message name="FullCountryInfoSoapRequest">
+    <part name="parameters" element="tns:FullCountryInfo"/>
+  </message>
+  <message name="FullCountryInfoSoapResponse">
+    <part name="parameters" element="tns:FullCountryInfoResponse"/>
+  </message>
+  <message name="FullCountryInfoAllCountriesSoapRequest">
+    <part name="parameters" element="tns:FullCountryInfoAllCountries"/>
+  </message>
+  <message name="FullCountryInfoAllCountriesSoapResponse">
+    <part name="parameters" element="tns:FullCountryInfoAllCountriesResponse"/>
+  </message>
+  <message name="CountriesUsingCurrencySoapRequest">
+    <part name="parameters" element="tns:CountriesUsingCurrency"/>
+  </message>
+  <message name="CountriesUsingCurrencySoapResponse">
+    <part name="parameters" element="tns:CountriesUsingCurrencyResponse"/>
+  </message>
+  <message name="ListOfLanguagesByNameSoapRequest">
+    <part name="parameters" element="tns:ListOfLanguagesByName"/>
+  </message>
+  <message name="ListOfLanguagesByNameSoapResponse">
+    <part name="parameters" element="tns:ListOfLanguagesByNameResponse"/>
+  </message>
+  <message name="ListOfLanguagesByCodeSoapRequest">
+    <part name="parameters" element="tns:ListOfLanguagesByCode"/>
+  </message>
+  <message name="ListOfLanguagesByCodeSoapResponse">
+    <part name="parameters" element="tns:ListOfLanguagesByCodeResponse"/>
+  </message>
+  <message name="LanguageNameSoapRequest">
+    <part name="parameters" element="tns:LanguageName"/>
+  </message>
+  <message name="LanguageNameSoapResponse">
+    <part name="parameters" element="tns:LanguageNameResponse"/>
+  </message>
+  <message name="LanguageISOCodeSoapRequest">
+    <part name="parameters" element="tns:LanguageISOCode"/>
+  </message>
+  <message name="LanguageISOCodeSoapResponse">
+    <part name="parameters" element="tns:LanguageISOCodeResponse"/>
+  </message>
+  <portType name="CountryInfoServiceSoapType">
+    <operation name="ListOfContinentsByName">
+      <documentation>Returns a list of continents ordered by name.</documentation>
+      <input message="tns:ListOfContinentsByNameSoapRequest"/>
+      <output message="tns:ListOfContinentsByNameSoapResponse"/>
+    </operation>
+    <operation name="ListOfContinentsByCode">
+      <documentation>Returns a list of continents ordered by code.</documentation>
+      <input message="tns:ListOfContinentsByCodeSoapRequest"/>
+      <output message="tns:ListOfContinentsByCodeSoapResponse"/>
+    </operation>
+    <operation name="ListOfCurrenciesByName">
+      <documentation>Returns a list of currencies ordered by name.</documentation>
+      <input message="tns:ListOfCurrenciesByNameSoapRequest"/>
+      <output message="tns:ListOfCurrenciesByNameSoapResponse"/>
+    </operation>
+    <operation name="ListOfCurrenciesByCode">
+      <documentation>Returns a list of currencies ordered by code.</documentation>
+      <input message="tns:ListOfCurrenciesByCodeSoapRequest"/>
+      <output message="tns:ListOfCurrenciesByCodeSoapResponse"/>
+    </operation>
+    <operation name="CurrencyName">
+      <documentation>Returns the name of the currency (if found)</documentation>
+      <input message="tns:CurrencyNameSoapRequest"/>
+      <output message="tns:CurrencyNameSoapResponse"/>
+    </operation>
+    <operation name="ListOfCountryNamesByCode">
+      <documentation>Returns a list of all stored counties ordered by ISO code</documentation>
+      <input message="tns:ListOfCountryNamesByCodeSoapRequest"/>
+      <output message="tns:ListOfCountryNamesByCodeSoapResponse"/>
+    </operation>
+    <operation name="ListOfCountryNamesByName">
+      <documentation>Returns a list of all stored counties ordered by country name</documentation>
+      <input message="tns:ListOfCountryNamesByNameSoapRequest"/>
+      <output message="tns:ListOfCountryNamesByNameSoapResponse"/>
+    </operation>
+    <operation name="ListOfCountryNamesGroupedByContinent">
+      <documentation>Returns a list of all stored counties grouped per continent</documentation>
+      <input message="tns:ListOfCountryNamesGroupedByContinentSoapRequest"/>
+      <output message="tns:ListOfCountryNamesGroupedByContinentSoapResponse"/>
+    </operation>
+    <operation name="CountryName">
+      <documentation>Searches the database for a country by the passed ISO country code</documentation>
+      <input message="tns:CountryNameSoapRequest"/>
+      <output message="tns:CountryNameSoapResponse"/>
+    </operation>
+    <operation name="CountryISOCode">
+      <documentation>This function tries to found a country based on the passed country name.</documentation>
+      <input message="tns:CountryISOCodeSoapRequest"/>
+      <output message="tns:CountryISOCodeSoapResponse"/>
+    </operation>
+    <operation name="CapitalCity">
+      <documentation>Returns the  name of the captial city for the passed country code</documentation>
+      <input message="tns:CapitalCitySoapRequest"/>
+      <output message="tns:CapitalCitySoapResponse"/>
+    </operation>
+    <operation name="CountryCurrency">
+      <documentation>Returns the currency ISO code and name for the passed country ISO code</documentation>
+      <input message="tns:CountryCurrencySoapRequest"/>
+      <output message="tns:CountryCurrencySoapResponse"/>
+    </operation>
+    <operation name="CountryFlag">
+      <documentation>Returns a link to a picture of the country flag</documentation>
+      <input message="tns:CountryFlagSoapRequest"/>
+      <output message="tns:CountryFlagSoapResponse"/>
+    </operation>
+    <operation name="CountryIntPhoneCode">
+      <documentation>Returns the internation phone code for the passed ISO country code</documentation>
+      <input message="tns:CountryIntPhoneCodeSoapRequest"/>
+      <output message="tns:CountryIntPhoneCodeSoapResponse"/>
+    </operation>
+    <operation name="FullCountryInfo">
+      <documentation>Returns a struct with all the stored country information. Pass the ISO country code</documentation>
+      <input message="tns:FullCountryInfoSoapRequest"/>
+      <output message="tns:FullCountryInfoSoapResponse"/>
+    </operation>
+    <operation name="FullCountryInfoAllCountries">
+      <documentation>Returns an array with all countries and all the language information stored</documentation>
+      <input message="tns:FullCountryInfoAllCountriesSoapRequest"/>
+      <output message="tns:FullCountryInfoAllCountriesSoapResponse"/>
+    </operation>
+    <operation name="CountriesUsingCurrency">
+      <documentation>Returns a list of all countries that use the same currency code. Pass a ISO currency code</documentation>
+      <input message="tns:CountriesUsingCurrencySoapRequest"/>
+      <output message="tns:CountriesUsingCurrencySoapResponse"/>
+    </operation>
+    <operation name="ListOfLanguagesByName">
+      <documentation>Returns an array of languages ordered by name</documentation>
+      <input message="tns:ListOfLanguagesByNameSoapRequest"/>
+      <output message="tns:ListOfLanguagesByNameSoapResponse"/>
+    </operation>
+    <operation name="ListOfLanguagesByCode">
+      <documentation>Returns an array of languages ordered by code</documentation>
+      <input message="tns:ListOfLanguagesByCodeSoapRequest"/>
+      <output message="tns:ListOfLanguagesByCodeSoapResponse"/>
+    </operation>
+    <operation name="LanguageName">
+      <documentation>Find a language name based on the passed ISO language code</documentation>
+      <input message="tns:LanguageNameSoapRequest"/>
+      <output message="tns:LanguageNameSoapResponse"/>
+    </operation>
+    <operation name="LanguageISOCode">
+      <documentation>Find a language ISO code based on the passed language name</documentation>
+      <input message="tns:LanguageISOCodeSoapRequest"/>
+      <output message="tns:LanguageISOCodeSoapResponse"/>
+    </operation>
+  </portType>
+  <binding name="CountryInfoServiceSoapBinding" type="tns:CountryInfoServiceSoapType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ListOfContinentsByName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfContinentsByCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCurrenciesByName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCurrenciesByCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CurrencyName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCountryNamesByCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCountryNamesByName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCountryNamesGroupedByContinent">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryISOCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CapitalCity">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryCurrency">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryFlag">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryIntPhoneCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FullCountryInfo">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FullCountryInfoAllCountries">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountriesUsingCurrency">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfLanguagesByName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfLanguagesByCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LanguageName">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LanguageISOCode">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="CountryInfoServiceSoapBinding12" type="tns:CountryInfoServiceSoapType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ListOfContinentsByName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfContinentsByCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCurrenciesByName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCurrenciesByCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CurrencyName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCountryNamesByCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCountryNamesByName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfCountryNamesGroupedByContinent">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryISOCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CapitalCity">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryCurrency">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryFlag">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountryIntPhoneCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FullCountryInfo">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FullCountryInfoAllCountries">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CountriesUsingCurrency">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfLanguagesByName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListOfLanguagesByCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LanguageName">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LanguageISOCode">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CountryInfoService">
+    <documentation>This DataFlex Web Service opens up country information. 2 letter ISO codes are used for Country code. There are functions to retrieve the used Currency, Language, Capital City, Continent and Telephone code.</documentation>
+    <port name="CountryInfoServiceSoap" binding="tns:CountryInfoServiceSoapBinding">
+      <soap:address location="http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso"/>
+    </port>
+    <port name="CountryInfoServiceSoap12" binding="tns:CountryInfoServiceSoapBinding12">
+      <soap12:address location="http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint></con:endpoints><con:operation id="e3b1396b-448d-4c90-aa34-fc2f0d0ef9f4" isOneWay="false" action="" name="CapitalCity" bindingOperationName="CapitalCity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="87b406b9-74d8-4905-9e33-b9ab2c6c22c4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CapitalCity>\r
+         <web:sCountryISOCode>BW</web:sCountryISOCode>\r
+      </web:CapitalCity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CapitalCityRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8b2b7102-fd38-4fd4-9851-1ce33f85551c" isOneWay="false" action="" name="CountriesUsingCurrency" bindingOperationName="CountriesUsingCurrency" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="35e037fd-d2c7-4f2d-bf94-1ebd73e3736f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountriesUsingCurrency>\r
+         <web:sISOCurrencyCode>?</web:sISOCurrencyCode>\r
+      </web:CountriesUsingCurrency>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountriesUsingCurrencyRequest"/></con:call></con:operation><con:operation id="4f8cb945-bf70-4fc0-aa4c-c3d7ad7350f4" isOneWay="false" action="" name="CountryCurrency" bindingOperationName="CountryCurrency" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="626a2b86-a92b-42f1-9e7b-0383b60373c2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryCurrency>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryCurrency>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryCurrencyRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="aa11759e-9a97-41fb-ba90-48dd9db9d6f2" isOneWay="false" action="" name="CountryFlag" bindingOperationName="CountryFlag" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a0073ca-064e-430c-a07d-4a2075e2edeb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryFlag>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryFlag>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryFlagRequest"/></con:call></con:operation><con:operation id="c4fb1155-9fac-445d-9cff-dbf430af6d28" isOneWay="false" action="" name="CountryIntPhoneCode" bindingOperationName="CountryIntPhoneCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0cab0c4f-8db8-4a34-a943-5138ef3f8e26" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryIntPhoneCode>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryIntPhoneCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryIntPhoneCodeRequest"/></con:call></con:operation><con:operation id="0648808c-c821-4391-92f1-f36744f89660" isOneWay="false" action="" name="CountryISOCode" bindingOperationName="CountryISOCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="95d77fd5-6438-4f03-8ba1-b086bb5a38f0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryISOCode>\r
+         <web:sCountryName>South Africa</web:sCountryName>\r
+      </web:CountryISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryISOCodeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d207668c-b09c-4c49-aea1-d78354cf830c" isOneWay="false" action="" name="CountryName" bindingOperationName="CountryName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ec265b21-a072-412c-b481-63fc756fc793" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryName>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryNameRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1eedcac0-39be-4fc3-8f1e-26e8cc6196f7" isOneWay="false" action="" name="CurrencyName" bindingOperationName="CurrencyName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9be6fd34-df03-40d5-9ead-62535f1c1828" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CurrencyName>\r
+         <web:sCurrencyISOCode>?</web:sCurrencyISOCode>\r
+      </web:CurrencyName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CurrencyNameRequest"/></con:call></con:operation><con:operation id="13945ab7-a2dd-4c6d-8bae-4de7a951bcb6" isOneWay="false" action="" name="FullCountryInfo" bindingOperationName="FullCountryInfo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c6f1c77f-cb20-45d6-9383-2595f9d2253c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:FullCountryInfo>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:FullCountryInfo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/FullCountryInfoRequest"/></con:call></con:operation><con:operation id="e03e40d5-a639-48a7-b364-f9e150943198" isOneWay="false" action="" name="FullCountryInfoAllCountries" bindingOperationName="FullCountryInfoAllCountries" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="85148a68-9211-40b8-a8fc-80b199c95859" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:FullCountryInfoAllCountries/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/FullCountryInfoAllCountriesRequest"/></con:call></con:operation><con:operation id="73c3a138-f77f-456b-8e71-75e319cb5a60" isOneWay="false" action="" name="LanguageISOCode" bindingOperationName="LanguageISOCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d4ee7c19-7b1a-4c65-b8d5-bc7e810f8030" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:LanguageISOCode>\r
+         <web:sLanguageName>?</web:sLanguageName>\r
+      </web:LanguageISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/LanguageISOCodeRequest"/></con:call></con:operation><con:operation id="4f4c0a98-f2a7-4e6d-bb0b-ec7aefa6b9d3" isOneWay="false" action="" name="LanguageName" bindingOperationName="LanguageName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c17e55c-82ec-4e9f-b6c4-41c4a2d43fe7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:LanguageName>\r
+         <web:sISOCode>?</web:sISOCode>\r
+      </web:LanguageName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/LanguageNameRequest"/></con:call></con:operation><con:operation id="804a6c90-185a-4951-a9ba-476f5aab9fd9" isOneWay="false" action="" name="ListOfContinentsByCode" bindingOperationName="ListOfContinentsByCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="26bd02f1-b8f9-40ce-b200-a2ffbc9d9eac" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfContinentsByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfContinentsByCodeRequest"/></con:call></con:operation><con:operation id="a2bce2cd-d1b0-4dfb-904c-495ef4907607" isOneWay="false" action="" name="ListOfContinentsByName" bindingOperationName="ListOfContinentsByName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="681f4e6a-74ca-43bf-80ab-52eb9dfdddf9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfContinentsByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfContinentsByNameRequest"/></con:call></con:operation><con:operation id="afa5de58-22ed-4009-8fb5-6fc9426f1eca" isOneWay="false" action="" name="ListOfCountryNamesByCode" bindingOperationName="ListOfCountryNamesByCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0bef67f0-00f3-448f-a927-a5b7226c19ae" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesByCodeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="901c9413-9c97-4713-b9dc-259523a8ba4d" isOneWay="false" action="" name="ListOfCountryNamesByName" bindingOperationName="ListOfCountryNamesByName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e6749316-bc6e-4a0e-9b86-743c51de4479" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesByNameRequest"/></con:call></con:operation><con:operation id="edacb5fe-bb1f-4b21-a424-86e1d5778ba8" isOneWay="false" action="" name="ListOfCountryNamesGroupedByContinent" bindingOperationName="ListOfCountryNamesGroupedByContinent" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="76f3cd1c-83d7-4c44-83cc-06132f7933cf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesGroupedByContinent/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesGroupedByContinentRequest"/></con:call></con:operation><con:operation id="c93c1281-57c2-4243-a7d4-6c4187d4b5b8" isOneWay="false" action="" name="ListOfCurrenciesByCode" bindingOperationName="ListOfCurrenciesByCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="792cd959-1d08-457a-9bb3-d5f5bf9d6ef4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCurrenciesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCurrenciesByCodeRequest"/></con:call></con:operation><con:operation id="895f4626-80e7-4397-8ba6-02a90a2a0e64" isOneWay="false" action="" name="ListOfCurrenciesByName" bindingOperationName="ListOfCurrenciesByName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1cf9502b-1456-44c7-a211-6884bf012f9d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCurrenciesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCurrenciesByNameRequest"/></con:call></con:operation><con:operation id="0e32c016-1f9b-4f3e-b999-554be3c55e4b" isOneWay="false" action="" name="ListOfLanguagesByCode" bindingOperationName="ListOfLanguagesByCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0032c04a-5d97-4825-b996-d4e4615686e3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfLanguagesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfLanguagesByCodeRequest"/></con:call></con:operation><con:operation id="afac7b48-3219-4371-bd48-f90806c1f5e4" isOneWay="false" action="" name="ListOfLanguagesByName" bindingOperationName="ListOfLanguagesByName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="22ab658c-e2e2-4540-b6de-7e3f30ab1375" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfLanguagesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfLanguagesByNameRequest"/></con:call></con:operation></con:interface><con:testSuite id="5961f346-fb30-4731-bd0b-d12c00d79c3a" name="TestSuite1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="3ce3d0b4-dfee-4b4f-9f03-baa9d8eb7e1e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CapitalCity TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b794212d-7792-4a4d-9053-a1d5caa76211" name="CapitalCity"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CapitalCity</con:operation><con:request name="CapitalCity" id="e0b0664f-a895-44ae-8dae-780bca3c5a6f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CapitalCity>\r
+         <web:sCountryISOCode>ZA</web:sCountryISOCode>\r
+      </web:CapitalCity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="e085eefe-c3d2-49ab-87aa-a063e178d62f" name="Contains"><con:configuration><token>Cape Town1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CapitalCityRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cd8806e6-349f-4eec-a5a8-7293b24a9c35" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountriesUsingCurrency TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="68895876-ec87-4aec-959a-54afd96a573b" name="CountriesUsingCurrency"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountriesUsingCurrency</con:operation><con:request name="CountriesUsingCurrency" id="e47488a7-a8ae-48f6-b02b-0eac3e67e080"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountriesUsingCurrency>\r
+         <web:sISOCurrencyCode>?</web:sISOCurrencyCode>\r
+      </web:CountriesUsingCurrency>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountriesUsingCurrencyRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ffbd523d-295d-44f8-a247-651b4d8bd7ec" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountryCurrency TestCase" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase id="6582c042-dddc-4de0-82e7-e02345c1d9c6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountryFlag TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2e5ab360-0d3b-4622-b219-527a0a98cf70" name="CountryFlag"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryFlag</con:operation><con:request name="CountryFlag" id="1c0669d2-bbdf-4aec-976c-b20b85a84792"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryFlag>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryFlag>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryFlagRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="304f06fb-7c3e-4dff-9a30-825748fdec0b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountryIntPhoneCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c0ab0f5a-d00a-45e6-94b7-c7e9981e8fcc" name="CountryIntPhoneCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryIntPhoneCode</con:operation><con:request name="CountryIntPhoneCode" id="ab21072e-7ff5-45d0-b586-2ce2e047cdce"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryIntPhoneCode>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryIntPhoneCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryIntPhoneCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="238ed26b-53c6-4324-ab89-20c83a445b86" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountryISOCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0e713be2-21d9-4f69-8dca-9b562fa072cc" name="CountryISOCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryISOCode</con:operation><con:request name="CountryISOCode" id="6d76ed8b-9298-497c-b9b2-be3103b50488"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryISOCode>\r
+         <web:sCountryName>?</web:sCountryName>\r
+      </web:CountryISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryISOCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b89c9496-7693-4703-8ed4-55ee0d4c82bc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountryName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="664b8a50-1d25-4f8b-8e77-ad68d6568db5" name="CountryName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryName</con:operation><con:request name="CountryName" id="834b3a28-f5b8-4290-863d-fe0cc62f9990"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryName>\r
+         <web:sCountryISOCode>ZA</web:sCountryISOCode>\r
+      </web:CountryName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="e3a747bc-5d7d-492e-9706-f4577bff95fe" name="Contains"><con:configuration><token>South Africa</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryNameRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f6af5d46-acb5-4f40-b52b-85460bd1c20b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CurrencyName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="fe67b2cd-fbfb-4da8-98f1-99952ad5ac53" name="CurrencyName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CurrencyName</con:operation><con:request name="CurrencyName" id="1f1676ad-7024-4dd5-ad97-98dbba98fdd7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CurrencyName>\r
+         <web:sCurrencyISOCode>?</web:sCurrencyISOCode>\r
+      </web:CurrencyName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CurrencyNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="3d3c2238-171a-4bb6-a71d-09cced76c859" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FullCountryInfo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="5a7206d1-0a6c-43eb-bab2-266c4eb7f61b" name="FullCountryInfo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>FullCountryInfo</con:operation><con:request name="FullCountryInfo" id="729a7951-5fb9-444b-9886-b1ea055b7360"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:FullCountryInfo>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:FullCountryInfo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/FullCountryInfoRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bb44a1ba-2008-4dff-b780-62467f82e861" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FullCountryInfoAllCountries TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c3492544-864f-4304-96dd-084748836061" name="FullCountryInfoAllCountries"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>FullCountryInfoAllCountries</con:operation><con:request name="FullCountryInfoAllCountries" id="774bcb3a-771e-444c-b47b-5f4d31ef8457"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:FullCountryInfoAllCountries/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/FullCountryInfoAllCountriesRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1bb812dd-2c76-49bf-ad71-3b3cb52ba52a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="LanguageISOCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="69a60ca9-7726-408a-90a5-f0644dffebc1" name="LanguageISOCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>LanguageISOCode</con:operation><con:request name="LanguageISOCode" id="36fab085-b607-453a-8406-5a4c53923286"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:LanguageISOCode>\r
+         <web:sLanguageName>?</web:sLanguageName>\r
+      </web:LanguageISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/LanguageISOCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="3426e98d-5799-439b-ac6c-1a17697e7752" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="LanguageName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="498f8f41-8c1c-4900-a5e1-60eac2e80eac" name="LanguageName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>LanguageName</con:operation><con:request name="LanguageName" id="badcd39d-4486-4ec9-b7e0-07750804bde5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:LanguageName>\r
+         <web:sISOCode>?</web:sISOCode>\r
+      </web:LanguageName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/LanguageNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="8a89937d-cd20-4294-8b24-d8c6a9fd4874" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfContinentsByCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d0bbda0c-eec1-4508-83b8-7628c20f9487" name="ListOfContinentsByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfContinentsByCode</con:operation><con:request name="ListOfContinentsByCode" id="6c129ec3-5c0b-4630-b555-466dd9374a3b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfContinentsByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfContinentsByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d65dc9b4-ff36-4440-9c95-6c6f9e02a5d7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfContinentsByName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="afbacdf7-9d50-4f73-9754-eae4d812672d" name="ListOfContinentsByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfContinentsByName</con:operation><con:request name="ListOfContinentsByName" id="4982f62a-afe5-4a37-af64-7dff252b536d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfContinentsByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfContinentsByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4f12f206-edd4-4902-b644-90a954bb2c95" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfCountryNamesByCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="fe5c0c47-6c0f-4f00-89ea-1ae66fc9e37f" name="ListOfCountryNamesByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCountryNamesByCode</con:operation><con:request name="ListOfCountryNamesByCode" id="573a29c1-8376-45f2-b74a-870ddb03eeb5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9b26a917-c806-408d-8cdf-916e52fb9851" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfCountryNamesByName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="29643b3f-a01e-462e-8a66-1b8382ca4959" name="ListOfCountryNamesByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCountryNamesByName</con:operation><con:request name="ListOfCountryNamesByName" id="cff13025-209f-4fc9-b629-475333889ca5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c1772de1-5216-4099-9fd7-7d3c3eeb717a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfCountryNamesGroupedByContinent TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="a61e55c3-49b8-4754-9d41-092c127b8247" name="ListOfCountryNamesGroupedByContinent"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCountryNamesGroupedByContinent</con:operation><con:request name="ListOfCountryNamesGroupedByContinent" id="b683a056-0992-4db4-9f8c-034ebc8bb000"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesGroupedByContinent/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesGroupedByContinentRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="eb0c89dc-581b-41de-a189-b17da3cfd720" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfCurrenciesByCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="fbbd2b4b-f957-421e-9d4c-d0fc81a81a59" name="ListOfCurrenciesByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCurrenciesByCode</con:operation><con:request name="ListOfCurrenciesByCode" id="ba623c9e-2daa-4288-a147-4cc64131c7eb"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCurrenciesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCurrenciesByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f45bd16c-e9a8-4160-ab7a-75ba9ee69e38" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfCurrenciesByName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f2a2a67a-771a-46d5-8502-ac3f766b026c" name="ListOfCurrenciesByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCurrenciesByName</con:operation><con:request name="ListOfCurrenciesByName" id="05a229a0-74f9-46e9-ba42-2c3425a363ba"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCurrenciesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCurrenciesByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="fe9ad96b-2d43-4952-b0b9-b0f4e7e0443a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfLanguagesByCode TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e2ea3011-bfcd-4a67-b7b9-cb145ec5960c" name="ListOfLanguagesByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfLanguagesByCode</con:operation><con:request name="ListOfLanguagesByCode" id="4b07172f-204b-4028-b163-281c793909f1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfLanguagesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfLanguagesByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9e047224-677a-475e-917e-e143d8526349" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ListOfLanguagesByName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="27aa0faa-22ae-4b13-b75c-22ad5e3fcfca" name="ListOfLanguagesByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfLanguagesByName</con:operation><con:request name="ListOfLanguagesByName" id="b7a07a3f-8edb-44b1-81ea-d692ccafbc5a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfLanguagesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfLanguagesByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="f3ffd2ac-be94-4e13-980d-b1e0ae887ebd" name="TestSuite2"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="a060a588-4fdd-4fde-be17-909f2c12bc03" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CountryInfoServiceSoapBinding TestSuite" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="properties" name="CountryCodes" id="86fbf83f-ef2d-4f41-a53b-cfb7897640b1"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>CountryName</con:name><con:value>NAM</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="d984d88e-af86-41ff-b669-c41451c4364c"><con:settings/><con:config><script>log.info "Hello World.."
+
+def name = context.expand('${#Global#Name}')
+
+log.info("Property Name is: " + name);
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="GetSetProperties" id="0f6c2226-fc4e-481e-9bcc-fff4046676bf"><con:settings/><con:config><script>/******* GET Property **********/
+
+//Project level
+/*def ProjectProperty = testRunner.testCase.testSuite.project.getPropertyValue("Name")
+log.info("Project Property = "+ProjectProperty);
+//TestSuite
+def TestSuiteProperty = testRunner.testCase.testSuite.getPropertyValue("Name")
+log.info("TestSuite Property = "+TestSuiteProperty);
+//TestCase
+def TestCaseProperty = testRunner.testCase.getPropertyValue("Name")
+log.info("TestCase Property = "+TestCaseProperty);
+//TestStep
+def TestStepProperty = testRunner.testCase.getTestStepByName("CountryCodes").getPropertyValue("Name")
+log.info("TestStep Property = "+TestStepProperty);
+//Global Properties
+def globalProperty = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "Name" )
+log.info("Global Property = "+globalProperty)*/
+
+/******* SET Property **********/
+
+//adding a property
+
+//Project level
+/*testRunner.testCase.testSuite.project.removeProperty("Name")
+//TestSuite
+testRunner.testCase.testSuite.removeProperty("Name")
+//TestCase
+testRunner.testCase.removeProperty("Name")
+//TestStep
+testRunner.testCase.getTestStepByName("CountryCodes").removeProperty("Name")
+//Global Properties
+com.eviware.soapui.SoapUI.globalProperties.removeProperty( "Name");*/
+
+
+//loop through properties
+testRunner.testCase.properties.each
+{
+	key,value ->
+	log.info (testRunner.testCase.getPropertyValue(key))
+	//log.info (key+" - "+value)
+}
+
+
+</script></con:config></con:testStep><con:testStep type="request" id="fc4d895e-1c97-422a-8556-18130bc066d3" name="CapitalCity"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CapitalCity</con:operation><con:request name="CapitalCity" id="f8b009a1-ae93-4641-adfb-b77973a54750"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CapitalCity>\r
+         <web:sCountryISOCode>${CountryCodes#CountryName}</web:sCountryISOCode>\r
+      </web:CapitalCity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CapitalCityRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="2b8d3f8b-48c9-441d-8629-ab96e8570ece" name="CountriesUsingCurrency"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountriesUsingCurrency</con:operation><con:request name="CountriesUsingCurrency" id="26c56b33-343d-44d3-a9fb-5ca223fbb081"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountriesUsingCurrency>\r
+         <web:sISOCurrencyCode>?</web:sISOCurrencyCode>\r
+      </web:CountriesUsingCurrency>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountriesUsingCurrencyRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="3f21695b-9e8e-4213-bf25-d0c89f0fbb63" name="CountryCurrency"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryCurrency</con:operation><con:request name="CountryCurrency" id="4a29a181-d9d9-46eb-a3ef-88d5f2dc4e3b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryCurrency>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryCurrency>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryCurrencyRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="0dd56906-0980-43f7-ad56-339e4b2966e8" name="CountryFlag"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryFlag</con:operation><con:request name="CountryFlag" id="7183c8b5-7f60-4d41-8c7f-8e77070425bc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryFlag>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryFlag>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryFlagRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="2b9ab92a-007c-4d20-9806-ee4c0c0e068d" name="CountryIntPhoneCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryIntPhoneCode</con:operation><con:request name="CountryIntPhoneCode" id="2ed53415-10c9-45dc-bc9f-4d53abd87484"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryIntPhoneCode>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryIntPhoneCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryIntPhoneCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="11abbc70-f105-4f79-94f2-cb4a60153ddb" name="CountryISOCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryISOCode</con:operation><con:request name="CountryISOCode" id="7f16635f-81dd-4e98-b9c4-57e27f97b3c7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryISOCode>\r
+         <web:sCountryName>?</web:sCountryName>\r
+      </web:CountryISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryISOCodeRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="683678aa-2f10-4ff3-b7c9-90726836b7a8" name="CountryName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryName</con:operation><con:request name="CountryName" id="48b4c487-ff58-4ec7-90c4-62af8957bd16"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryName>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:CountryName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="06962bd4-c336-4efd-80dd-8655190ffc6c" name="CurrencyName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CurrencyName</con:operation><con:request name="CurrencyName" id="5d38cd2b-f928-48dc-8d75-b509cc1d4090"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CurrencyName>\r
+         <web:sCurrencyISOCode>?</web:sCurrencyISOCode>\r
+      </web:CurrencyName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CurrencyNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="914ca11e-1944-4f0b-9bba-d056bdc87878" name="FullCountryInfo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>FullCountryInfo</con:operation><con:request name="FullCountryInfo" id="c56804cb-66b5-4f93-b140-fb259a15d7d2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:FullCountryInfo>\r
+         <web:sCountryISOCode>?</web:sCountryISOCode>\r
+      </web:FullCountryInfo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/FullCountryInfoRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="5200a623-0c13-44bf-9a72-2872178ba842" name="FullCountryInfoAllCountries"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>FullCountryInfoAllCountries</con:operation><con:request name="FullCountryInfoAllCountries" id="7a876252-80b4-4943-84fa-479ff74e35fe"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:FullCountryInfoAllCountries/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/FullCountryInfoAllCountriesRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="5be46478-efcc-4195-b81e-0866b2a43624" name="LanguageISOCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>LanguageISOCode</con:operation><con:request name="LanguageISOCode" id="43f4a9d9-ed26-4aaa-aef4-743471360d26"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:LanguageISOCode>\r
+         <web:sLanguageName>?</web:sLanguageName>\r
+      </web:LanguageISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/LanguageISOCodeRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="d06ab33c-8557-4c87-9452-961b99b37d97" name="LanguageName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>LanguageName</con:operation><con:request name="LanguageName" id="184a4114-73fe-4dc9-af0c-455ba3490322"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:LanguageName>\r
+         <web:sISOCode>?</web:sISOCode>\r
+      </web:LanguageName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/LanguageNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="9ee8dc28-4666-4786-968d-da8e749cab75" name="ListOfContinentsByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfContinentsByCode</con:operation><con:request name="ListOfContinentsByCode" id="ecf0661f-f2de-4382-8a16-29da7c4afb28"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfContinentsByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfContinentsByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="3e2ccd83-dc62-4a09-b633-266d0e3de36e" name="ListOfContinentsByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfContinentsByName</con:operation><con:request name="ListOfContinentsByName" id="f35eb056-9c20-40c7-a10b-17c927b58351"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfContinentsByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfContinentsByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="3521fc80-a4f9-4c5e-a76e-36de5b863ab4" name="ListOfCountryNamesByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCountryNamesByCode</con:operation><con:request name="ListOfCountryNamesByCode" id="fb767631-9e5c-4e57-801a-d6678d5f7074"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="a7783f29-fe03-467e-aca6-e24781866594" name="ListOfCountryNamesByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCountryNamesByName</con:operation><con:request name="ListOfCountryNamesByName" id="04bfac7e-684b-4bb2-878b-92e580cf3a2e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="6de81842-b039-4d76-a66d-40d295e66b83" name="ListOfCountryNamesGroupedByContinent"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCountryNamesGroupedByContinent</con:operation><con:request name="ListOfCountryNamesGroupedByContinent" id="cc46f7b9-2400-4c7f-bc98-bd89c6a3a2a1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCountryNamesGroupedByContinent/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCountryNamesGroupedByContinentRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="98665ee6-56fb-41a8-abdd-402cadeaddd2" name="ListOfCurrenciesByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCurrenciesByCode</con:operation><con:request name="ListOfCurrenciesByCode" id="807a83d0-ad19-430b-9cf4-a269ebbd01e3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCurrenciesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCurrenciesByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="e5ea4d7a-b2bb-4e1a-8f69-abb8ea122e3c" name="ListOfCurrenciesByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfCurrenciesByName</con:operation><con:request name="ListOfCurrenciesByName" id="3437ebc0-8e8e-418d-a8a3-93d2e1b25de3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfCurrenciesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfCurrenciesByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="5ffba7db-659e-43f3-9dec-e94817795639" name="ListOfLanguagesByCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfLanguagesByCode</con:operation><con:request name="ListOfLanguagesByCode" id="aca83d7e-7a79-4817-afc6-614c2e8c4c7f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfLanguagesByCode/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfLanguagesByCodeRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="4f5f448e-7af0-43c0-9534-88b7f7499180" name="ListOfLanguagesByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>ListOfLanguagesByName</con:operation><con:request name="ListOfLanguagesByName" id="1c40f059-4e09-4a49-8b51-4b97b6fa23cf"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:ListOfLanguagesByName/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/ListOfLanguagesByNameRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>CountryName</con:name><con:value>ZW</con:value></con:property></con:properties></con:testCase><con:testCase id="9f1d0a88-ae16-4071-b08d-82648f0b832a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PropertyTransferDemo" searchProperties="true"><con:settings/><con:testStep type="request" id="bb9966c5-bec8-442a-b1a2-2960f7ac0947" name="CountryISOCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryISOCode</con:operation><con:request name="CountryISOCode" id="7f16635f-81dd-4e98-b9c4-57e27f97b3c7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryISOCode>\r
+         <web:sCountryName>${#TestCase#CountryName}</web:sCountryName>\r
+      </web:CountryISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryISOCodeRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="58d35821-f1c4-454a-ac37-fbb64d45adcc"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>CountryCode</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>CountryISOCode</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.oorsprong.org/websamples.countryinfo';
+//*:CountryISOCodeResult</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>CapitalCity</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.oorsprong.org/websamples.countryinfo';
+//*:sCountryISOCode</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="78271f15-185d-4af8-8827-1998e96e0f26" name="CapitalCity"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CapitalCity</con:operation><con:request name="CapitalCity" id="f8b009a1-ae93-4641-adfb-b77973a54750"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:CapitalCity>
+         <web:sCountryISOCode>US</web:sCountryISOCode>
+      </web:CapitalCity>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CapitalCityRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>CountryName</con:name><con:value>United States</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>CountryName</con:name><con:value>BW</con:value></con:property></con:properties></con:testSuite><con:testSuite id="37b95c9b-4be5-408f-9279-b66414b41203" name="TestSuite3"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="771b339a-af35-4d75-94f9-d0df8e493f03" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script 1" id="9d883ed8-c928-41c0-b46d-d7398a51f025"><con:settings/><con:config><script>import java.io.*;
+
+
+log.info ("               Hello API...");
+
+int a =40;
+int b =90;
+int c =a+b;
+
+log.info ("               Result is: "+c);
+
+//Global variables in SoapUI
+
+/*log
+context
+testRunner*/
+
+log.info testRunner.metaClass.methods*.name.unique().sort()
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="Hello" id="e4f63157-6828-4b14-9231-ea026369640c"><con:settings/><con:config><script>class Hello{
+
+	def log;
+	def context;
+	def testRunner;
+
+	def Hello(log,context,testRunner){
+		this.log = log;
+		this.context =context;
+		this.testRunner = testRunner; 
+	}
+
+	def sayHello(String name){
+		log.info("      Hello "+name);
+	}
+}
+
+context.setProperty("Hello", new Hello(log,context,testRunner));
+</script></con:config></con:testStep><con:testStep type="groovy" name="CallHello" id="231221f7-2aef-4d66-a2b8-f039080fe718"><con:settings/><con:config><script>def testStep = testRunner.testCase.getTestStepByName("Hello");//calling name of class
+
+testStep.run(testRunner, context);
+
+context.Hello.sayHello("Rest API");</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f655a4e6-94fb-4fe0-9cb0-88aee5cb8499" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase2" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="request" id="751d6c23-007b-4ac8-b275-d1c3175f23a4" name="GetCountryISOCode"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountryInfoServiceSoapBinding</con:interface><con:operation>CountryISOCode</con:operation><con:request name="GetCountryISOCode" id="7f16635f-81dd-4e98-b9c4-57e27f97b3c7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservices.oorsprong.org/websamples.countryinfo/countryinfoservice.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:CountryISOCode>\r
+         <web:sCountryName>India</web:sCountryName>\r
+      </web:CountryISOCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="4b3b5335-8ce8-4a62-8e8c-ce19dfeb3431" name="Contains"><con:configuration><token>IN</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.oorsprong.org/websamples.countryinfo/CountryInfoServiceSoapType/CountryISOCodeRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="CallHello" id="323215fe-c7bc-44e0-8201-d3e4b568086a"><con:settings/><con:config><script>project = testRunner.testCase.testSuite.project;
+tcase = project.testSuites["TestSuite3"].testCases["TestCase1"];
+hello = tcase.getTestStepByName("Hello");
+//def testStep = testRunner.testCase.getTestStepByName("Hello");//calling name of class
+
+hello.run(testRunner, context);
+
+context.Hello.sayHello("Rest API");</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ebaa998f-33eb-40a5-acca-f32bebaa0439" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase3" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script" id="cc81458e-7f26-47b5-aefb-517bd624ebb7"><con:settings/><con:config><script>project = testRunner.testCase.testSuite.project;
+tcase = project.testSuites["TestSuite3"].testCases["TestCase3"];
+tstep = tcase.getTestStepByName("GetCountryISOCode");
+def status = tstep.run(testRunner, context);
+def result = status.getStatus().toString();
+log.info ("   >>>   "+result)
+
+if(result =="OK"){
+	log.info("     >>>	Test Passed")
+}
+else{
+	log.info("     >>>	Test Failed")
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="RunTestSuite" id="12a89b31-2d9f-46a7-a8f2-e44bd825aeb6"><con:settings/><con:config><script>def suite = context.testCase.testSuite.project.testSuites["TestSuite2"]
+suite.run(null,false)
+
+log.info ("     >>> "+suite.getName().toString()+" - Executed Successfully")</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="91b517e7-c221-40ee-ac58-d0aaabceee89" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase4" searchProperties="true"><con:settings/><con:testStep type="groovy" name="RunTestCase" id="07d206f0-c909-4d64-96d2-0912597199ab"><con:settings/><con:config><script>def tCase = testRunner.testCase.testSuite.testCases["TestCase2"] //running a single test case
+def prop = new com.eviware.soapui.support.types.StringToObjectMap()
+
+runner = tCase.run(null, false);
+
+log.info("      >>> "+runner.getStatus().toString())
+
+def testCases = context.testCase.testSuite.getTestCaseList() //running multiple test cases
+
+testCases.each{
+log.info("   >>>   "+it.name)
+
+if(it.name =="TestCase2"){
+	log.info	("    >> This is testcase2")
+}
+}
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>CountryName</con:name><con:value>ZA</con:value></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property><con:property><con:name>DOB</con:name></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
